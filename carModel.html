@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D object</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      canvas{
+        position: absolute;
+      }
+      .progress-bar-container{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.5rem;
+        color: white;
+        background-color: black;
+        position: absolute;
+        z-index: 10;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .progress-bar-container label {
+        margin-bottom:  10px;
+      }
+      #progress-bar{
+        width: 70%;
+        height: 6px;
+        transition: 5ms;
+      }
+        </style>
+</head>
+<body>
+  <div class="progress-bar-container">
+    <label for="progress-bar" class="progress-bar">Started Loading...</label>
+    <progress id="progress-bar" value="0"></progress>
+    <br>
+  </div>
+    <canvas class="webgl"></canvas>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.172.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.172.0/examples/jsm/"
+          }
+        }
+      </script>
+      <script type="module">
+        import * as GUI from 'https://cdn.jsdelivr.net/npm/lil-gui@0.20/+esm';
+        </script>
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+      <script type="module" src="carModel.js"></script>
+</body>
+</html>
